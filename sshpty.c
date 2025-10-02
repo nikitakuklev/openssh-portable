@@ -194,7 +194,7 @@ pty_setowner(struct passwd *pw, const char *tty)
 				    tty, (u_int)pw->pw_uid, (u_int)gid,
 				    strerror(errno));
 			else
-				fatal("chown(%.100s, %u, %u) failed: %.100s",
+				debug("chown(%.100s, %u, %u) failed: %.100s",
 				    tty, (u_int)pw->pw_uid, (u_int)gid,
 				    strerror(errno));
 		}
