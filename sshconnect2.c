@@ -576,7 +576,7 @@ input_userauth_banner(int type, u_int32_t seq, struct ssh *ssh)
 	if ((r = sshpkt_get_cstring(ssh, &msg, &len)) != 0 ||
 	    (r = sshpkt_get_cstring(ssh, NULL, NULL)) != 0)
 		goto out;
-	if (len > 0 && options.log_level >= SYSLOG_LEVEL_INFO)
+	if (len > 0 && options.log_level >= SYSLOG_LEVEL_INFO && strstr(msg, "Fermilab local") == NULL) {)
 		fmprintf(stderr, "%s", msg);
 	r = 0;
  out:
